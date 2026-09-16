@@ -1,0 +1,1270 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محمود عبد السلام | Full Stack AI Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-primary: #0a0e27;
+        --bg-secondary: #111642;
+        --purple-main: #7c3aed;
+        --purple-light: #a78bfa;
+        --purple-dark: #5b21b6;
+        --blue-accent: #3b82f6;
+        --cyan-accent: #06b6d4;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --card-bg: rgba(17, 22, 66, 0.6);
+        --card-border: rgba(124, 58, 237, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cairo", "Inter", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      /* Background Animation */
+      .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .bg-animation .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .bg-animation .orb:nth-child(1) {
+        width: 600px;
+        height: 600px;
+        background: var(--purple-dark);
+        top: -200px;
+        right: -200px;
+      }
+
+      .bg-animation .orb:nth-child(2) {
+        width: 400px;
+        height: 400px;
+        background: var(--blue-accent);
+        bottom: -100px;
+        left: -100px;
+        animation-delay: -7s;
+      }
+
+      .bg-animation .orb:nth-child(3) {
+        width: 300px;
+        height: 300px;
+        background: var(--cyan-accent);
+        top: 50%;
+        left: 50%;
+        animation-delay: -14s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(50px, -50px) scale(1.1);
+        }
+        50% {
+          transform: translate(-30px, 30px) scale(0.9);
+        }
+        75% {
+          transform: translate(40px, 40px) scale(1.05);
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(20px);
+        background: rgba(10, 14, 39, 0.8);
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--purple-light),
+          var(--cyan-accent)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--purple-light);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 80px;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 50px;
+        background: rgba(124, 58, 237, 0.15);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        color: var(--purple-light);
+        font-size: 0.85rem;
+        margin-bottom: 24px;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #fff, var(--purple-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeInUp 0.8s ease 0.2s both;
+      }
+
+      .hero h2 {
+        font-size: 1.4rem;
+        color: var(--purple-light);
+        font-weight: 600;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.8s ease 0.4s both;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 36px;
+        animation: fadeInUp 0.8s ease 0.6s both;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        animation: fadeInUp 0.8s ease 0.8s both;
+      }
+
+      .btn-primary {
+        padding: 14px 32px;
+        border-radius: 12px;
+        background: linear-gradient(
+          135deg,
+          var(--purple-main),
+          var(--blue-accent)
+        );
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+      }
+
+      .btn-secondary {
+        padding: 14px 32px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--purple-light);
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid var(--card-border);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(124, 58, 237, 0.1);
+        border-color: var(--purple-light);
+        transform: translateY(-2px);
+      }
+
+      /* Section Title */
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #fff, var(--purple-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .section-title p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 100px 0;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 32px;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: visible;
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        transition: all 0.4s ease;
+        animation: cardFloat 6s ease-in-out infinite;
+      }
+
+      .project-card:nth-child(2) {
+        animation-delay: -2s;
+      }
+
+      .project-card:nth-child(3) {
+        animation-delay: -4s;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 22px;
+        background: linear-gradient(
+          45deg,
+          var(--purple-main),
+          var(--blue-accent),
+          var(--cyan-accent),
+          var(--purple-main)
+        );
+        background-size: 400% 400%;
+        z-index: -1;
+        opacity: 0;
+        animation: glowRotate 4s linear infinite;
+        transition: opacity 0.4s ease;
+      }
+
+      .project-card::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 22px;
+        background: linear-gradient(
+          45deg,
+          var(--purple-main),
+          var(--blue-accent),
+          var(--cyan-accent),
+          var(--purple-main)
+        );
+        background-size: 400% 400%;
+        z-index: -1;
+        opacity: 0.4;
+        filter: blur(15px);
+        animation: glowRotate 4s linear infinite;
+        transition: opacity 0.4s ease;
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-card:hover::after {
+        opacity: 0.8;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        border-color: transparent;
+        box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+      }
+
+      @keyframes glowRotate {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .card-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover .card-image img {
+        transform: scale(1.05);
+      }
+
+      .card-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 2;
+        backdrop-filter: blur(10px);
+      }
+
+      .badge-live {
+        background: rgba(34, 197, 94, 0.9);
+        color: white;
+      }
+
+      .badge-demo {
+        background: rgba(234, 179, 8, 0.9);
+        color: #1e293b;
+      }
+
+      .card-content {
+        padding: 24px;
+      }
+
+      .card-content h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .card-content p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+
+      .card-techs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        padding: 5px 12px;
+        border-radius: 8px;
+        background: rgba(124, 58, 237, 0.15);
+        border: 1px solid rgba(124, 58, 237, 0.2);
+        color: var(--purple-light);
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .card-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border-radius: 10px;
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.2),
+          rgba(59, 130, 246, 0.2)
+        );
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        color: var(--purple-light);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .card-button:hover {
+        background: linear-gradient(
+          135deg,
+          var(--purple-main),
+          var(--blue-accent)
+        );
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+      }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .modal-content {
+        background: var(--bg-secondary);
+        border-radius: 20px;
+        max-width: 900px;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 25px 100px rgba(124, 58, 237, 0.3);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: scale(1);
+      }
+
+      .modal-header {
+        padding: 24px;
+        border-bottom: 1px solid var(--card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(124, 58, 237, 0.05);
+      }
+
+      .modal-header h3 {
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      .modal-close {
+        background: rgba(124, 58, 237, 0.2);
+        border: 1px solid var(--card-border);
+        color: var(--purple-light);
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .modal-close:hover {
+        background: rgba(239, 68, 68, 0.2);
+        border-color: #ef4444;
+        color: #ef4444;
+        transform: rotate(90deg);
+      }
+
+      .modal-body {
+        padding: 0;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .modal-footer {
+        padding: 20px 24px;
+        border-top: 1px solid var(--card-border);
+        background: rgba(124, 58, 237, 0.05);
+      }
+
+      .modal-description {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+
+      .modal-techs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      /* Tech Stack Section */
+      .tech-stack {
+        padding: 100px 0;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 28px 16px;
+        border-radius: 16px;
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--card-border);
+        transition: all 0.3s;
+      }
+
+      .tech-item:hover {
+        transform: translateY(-4px);
+        border-color: var(--purple-main);
+        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+      }
+
+      .tech-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: rgba(124, 58, 237, 0.1);
+        font-size: 1.5rem;
+      }
+
+      .tech-item span {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+
+      .tech-item:hover span {
+        color: var(--purple-light);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 100px 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 24px;
+        border-radius: 16px;
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--card-border);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.3s;
+        overflow: hidden;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--purple-main);
+        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.2),
+          rgba(59, 130, 246, 0.2)
+        );
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .contact-info h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #fff;
+      }
+
+      .contact-info p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        word-break: break-all;
+        line-height: 1.5;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px;
+        border-top: 1px solid var(--card-border);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Particles */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: var(--purple-light);
+        border-radius: 50%;
+        opacity: 0;
+        animation: particleFloat 8s infinite;
+      }
+
+      @keyframes particleFloat {
+        0% {
+          opacity: 0;
+          transform: translateY(100vh) scale(0);
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-100px) scale(1);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero h2 {
+          font-size: 1.1rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          padding: 16px 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+
+        .modal-content {
+          margin: 10px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--purple-dark);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--purple-main);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-logo">MA</div>
+      <ul class="nav-links">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#projects">المشاريع</a></li>
+        <li><a href="#tech">التقنيات</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">✨ متاح للعمل على مشاريع جديدة</span>
+          <h1>محمود عبد السلام</h1>
+          <h2>Full Stack AI Developer</h2>
+          <p>
+            أطوّر أدوات ومنصات ويب مدعومة بالذكاء الاصطناعي. أحوّل الأفكار إلى
+            منتجات رقمية ذكية باستخدام أحدث التقنيات.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">شاهد مشاريعي</a>
+            <a href="#contact" class="btn-secondary">تواصل معي</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>المشاريع</h2>
+          <p>مجموعة من المشاريع اللي اشتغلت عليها</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: BIS Exam Platform -->
+          <div class="project-card fade-in">
+            <div class="card-image">
+              <span class="card-badge badge-live">🟢 Live</span>
+              <img src="assets\bis.png" alt="BIS Exam Platform" />
+            </div>
+            <div class="card-content">
+              <h3>BIS Exam Platform</h3>
+              <p>
+                منصة امتحانات آمنة للمدرسة البريطانية الدولية. أنشئ وأدر وحمل
+                امتحانات PDF بسهولة وأمان.
+              </p>
+              <div class="card-techs">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Supabase</span>
+              </div>
+              <button class="card-button" onclick="openModal('bis')">
+                🎬 شاهد العرض
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2: Adwatak -->
+          <div class="project-card fade-in">
+            <div class="card-image">
+              <span class="card-badge badge-demo">🟡 Demo</span>
+              <img src="assets\adawatak.png" alt="Adwatak" />
+            </div>
+            <div class="card-content">
+              <h3>Adwatak - أدواتك</h3>
+              <p>
+                منصة شاملة لأدوات معالجة ملفات PDF. حول الصور إلى PDF والعكس،
+                ادمج الملفات، اقتطع الصفحات، واضغط الملفات دون فقدان الجودة.
+              </p>
+              <div class="card-techs">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Python</span>
+              </div>
+              <button class="card-button" onclick="openModal('adwatak')">
+                🎬 شاهد العرض
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3: Shahsiyatak -->
+          <div class="project-card fade-in">
+            <div class="card-image">
+              <span class="card-badge badge-demo">🟡 Demo</span>
+              <img src="assets\personality_analysis.png" alt="Shahsiyatak" />
+            </div>
+            <div class="card-content">
+              <h3>Shahsiyatak</h3>
+              <p>
+                أداة تحليل شخصية تفاعلية تستخدم الذكاء الاصطناعي لفهم أنماط
+                الشخصية وتقديم توصيات مخصصة للتطور الذاتي.
+              </p>
+              <div class="card-techs">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Claude</span>
+                <span class="tech-tag">OpenRouter</span>
+                <span class="tech-tag">Supabase</span>
+              </div>
+              <button class="card-button" onclick="openModal('shahsiyatak')">
+                🎬 شاهد العرض
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div
+      class="modal-overlay"
+      id="videoModal"
+      onclick="closeModalOnOverlay(event)"
+    >
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3 id="modalTitle">عنوان المشروع</h3>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="video-container">
+            <iframe id="videoFrame" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p class="modal-description" id="modalDescription">وصف المشروع</p>
+          <div class="modal-techs" id="modalTechs"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="tech">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>التقنيات</h2>
+          <p>الأدوات والتقنيات اللي بستعملها يوميًا</p>
+        </div>
+
+        <div class="tech-grid fade-in">
+          <div class="tech-item">
+            <div class="tech-icon">⚡</div>
+            <span>Next.js</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">⚛️</div>
+            <span>React</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🔷</div>
+            <span>TypeScript</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🐍</div>
+            <span>Python</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🚀</div>
+            <span>FastAPI</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🗄️</div>
+            <span>Supabase</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🤖</div>
+            <span>OpenAI</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🧠</div>
+            <span>Claude</span>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🔗</div>
+            <span>OpenRouter</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>تواصل معي</h2>
+          <p>عندك فكرة مشروع؟ خلينا نتكلم!</p>
+        </div>
+
+        <div class="contact-grid fade-in">
+          <a
+            href="https://wa.me/972598179196"
+            target="_blank"
+            class="contact-card"
+          >
+            <div class="contact-icon">💬</div>
+            <div class="contact-info">
+              <h4>واتساب</h4>
+              <p>تواصل معي مباشرة</p>
+            </div>
+          </a>
+
+          <a href="mailto:mahabdalsalam04@gmail.com" class="contact-card">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <h4>البريد الإلكتروني</h4>
+              <p>mahabdalsalam04@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="https://khamsat.com" target="_blank" class="contact-card">
+            <div class="contact-icon">🛒</div>
+            <div class="contact-info">
+              <h4>خمسات</h4>
+              <p>اطلب خدمتي على خمسات</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 محمود عبد السلام. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+      // Modal Data
+      const modalData = {
+        bis: {
+          title: "BIS Exam Platform",
+          video: "https://www.youtube.com/embed/rUVHz0caO0A",
+          description:
+            "منصة امتحانات آمنة للمدرسة البريطانية الدولية. تتيح للمعلمين إنشاء وإدارة وتحميل امتحانات PDF بشكل آمن وسهل. النظام يوفر واجهة بسيطة مع ميزات متقدمة لإدارة الامتحانات.",
+          techs: ["Next.js", "FastAPI", "Python", "Supabase"],
+        },
+        adwatak: {
+          title: "Adwatak - أدواتك",
+          video: "https://www.youtube.com/embed/sOoRhaEO3H4",
+          description:
+            "منصة شاملة لأدوات معالجة ملفات PDF. تشمل: تحويل الصور إلى PDF والعكس، دمج ملفات PDF متعددة، تقسيم الصفحات، استخراج صفحات محددة، وضغط الملفات دون فقدان الجودة. واجهة سهلة وسريعة مع نتائج احترافية.",
+          techs: ["Next.js", "React", "TypeScript", "Python"],
+        },
+        shahsiyatak: {
+          title: "Shahsiyatak",
+          video: "https://www.youtube.com/embed/ABIcoRS8pYE",
+          description:
+            "أداة تحليل شخصية تفاعلية تستخدم الذكاء الاصطناعي (Claude & OpenRouter) لفهم أنماط الشخصية. تقدم اختبارات ممتعة وتحليلات عميقة مع توصيات مخصصة للتطور الذاتي والنمو الشخصي.",
+          techs: ["Next.js", "Claude", "OpenRouter", "Supabase"],
+        },
+      };
+
+      // Modal Functions
+      function openModal(projectKey) {
+        const modal = document.getElementById("videoModal");
+        const data = modalData[projectKey];
+
+        document.getElementById("modalTitle").textContent = data.title;
+        document.getElementById("videoFrame").src = data.video + "?autoplay=1";
+        document.getElementById("modalDescription").textContent =
+          data.description;
+
+        const techsContainer = document.getElementById("modalTechs");
+        techsContainer.innerHTML = data.techs
+          .map((tech) => `<span class="tech-tag">${tech}</span>`)
+          .join("");
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("videoModal");
+        modal.classList.remove("active");
+        document.getElementById("videoFrame").src = "";
+        document.body.style.overflow = "";
+      }
+
+      function closeModalOnOverlay(event) {
+        if (event.target === event.currentTarget) {
+          closeModal();
+        }
+      }
+
+      // Close modal on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      // Intersection Observer for fade-in animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // Generate particles
+      const particlesContainer = document.getElementById("particles");
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDelay = Math.random() * 8 + "s";
+        particle.style.animationDuration = Math.random() * 4 + 6 + "s";
+        particlesContainer.appendChild(particle);
+      }
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
