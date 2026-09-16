@@ -3,30 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>محمود عبد السلام | Full Stack AI Developer</title>
+    <title>محمود عبد السلام | Full Stack &amp; AI Developer</title>
+    <meta
+      name="description"
+      content="محمود عبد السلام، مطور Full Stack وAI. أبني مواقع ومنصات وأدوات ويب وتطبيقات وحلولًا تعتمد على الذكاء الاصطناعي، من الفكرة إلى الإطلاق."
+    />
+    <link rel="canonical" href="https://mahmoudeportfolio.netlify.app/" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/favicon.svg"
+      sizes="any"
+    />
+    <meta
+      property="og:title"
+      content="محمود عبد السلام | Full Stack &amp; AI Developer"
+    />
+    <meta
+      property="og:description"
+      content="محمود عبد السلام، مطور Full Stack وAI. أبني مواقع ومنصات وأدوات ويب وتطبيقات وحلولًا تعتمد على الذكاء الاصطناعي، من الفكرة إلى الإطلاق."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mahmoudeportfolio.netlify.app/" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="محمود عبد السلام | Full Stack &amp; AI Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="محمود عبد السلام، مطور Full Stack وAI. أبني مواقع ومنصات وأدوات ويب وتطبيقات وحلولًا تعتمد على الذكاء الاصطناعي، من الفكرة إلى الإطلاق."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "محمود عبد السلام",
+        "url": "https://mahmoudeportfolio.netlify.app/",
+        "jobTitle": "Full Stack & AI Developer"
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@500;600&display=swap"
       rel="stylesheet"
     />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       :root {
-        --bg-primary: #0a0e27;
-        --bg-secondary: #111642;
+        --bg-primary: #0b1022;
+        --bg-secondary: #141b32;
         --purple-main: #7c3aed;
-        --purple-light: #a78bfa;
+        --purple-light: #b7a3f5;
         --purple-dark: #5b21b6;
         --blue-accent: #3b82f6;
-        --cyan-accent: #06b6d4;
+        --cyan-accent: #67d5e8;
         --text-primary: #f1f5f9;
-        --text-secondary: #94a3b8;
-        --card-bg: rgba(17, 22, 66, 0.6);
-        --card-border: rgba(124, 58, 237, 0.2);
+        --text-secondary: #abb7ce;
+        --card-bg: rgba(21, 28, 50, 0.88);
+        --card-border: rgba(167, 181, 218, 0.15);
+        --border-accent: rgba(167, 139, 250, 0.45);
+        --radius-card: 18px;
+        --radius-control: 10px;
+        --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.18);
+        --nav-height: 72px;
+        --section-space: clamp(64px, 8vw, 104px);
+        color-scheme: dark;
       }
 
       * {
@@ -39,33 +82,85 @@
         font-family: "Cairo", "Inter", sans-serif;
         background: var(--bg-primary);
         color: var(--text-primary);
-        overflow-x: hidden;
+        line-height: 1.7;
         min-height: 100vh;
+      }
+
+      /* Global defaults and keyboard navigation */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-height) + 20px);
+      }
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        font: inherit;
+      }
+      button,
+      a[href] {
+        touch-action: manipulation;
+      }
+      :focus-visible {
+        outline: 2px solid var(--cyan-accent);
+        outline-offset: 5px;
+      }
+      main:focus,
+      section[tabindex="-1"]:focus {
+        outline: none;
+      }
+      ::selection {
+        background: var(--purple-dark);
+        color: #fff;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      [dir="ltr"],
+      .tech-tag {
+        unicode-bidi: isolate;
+      }
+      .skip-link {
+        position: fixed;
+        top: 12px;
+        inset-inline-start: 20px;
+        z-index: 1100;
+        padding: 10px 18px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border-radius: var(--radius-control);
+        transform: translateY(-160%);
+      }
+      .skip-link:focus {
+        transform: translateY(0);
       }
 
       /* Background Animation */
       .bg-animation {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
+        inset: 0;
+        z-index: -1;
         overflow: hidden;
+        pointer-events: none;
       }
 
       .bg-animation .orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.3;
-        animation: float 20s infinite ease-in-out;
+        opacity: 0.24;
+        animation: float 28s infinite ease-in-out;
       }
 
       .bg-animation .orb:nth-child(1) {
         width: 600px;
         height: 600px;
-        background: var(--purple-dark);
+        background: radial-gradient(
+          circle,
+          var(--purple-dark),
+          transparent 70%
+        );
         top: -200px;
         right: -200px;
       }
@@ -73,7 +168,11 @@
       .bg-animation .orb:nth-child(2) {
         width: 400px;
         height: 400px;
-        background: var(--blue-accent);
+        background: radial-gradient(
+          circle,
+          var(--blue-accent),
+          transparent 70%
+        );
         bottom: -100px;
         left: -100px;
         animation-delay: -7s;
@@ -82,7 +181,11 @@
       .bg-animation .orb:nth-child(3) {
         width: 300px;
         height: 300px;
-        background: var(--cyan-accent);
+        background: radial-gradient(
+          circle,
+          var(--cyan-accent),
+          transparent 70%
+        );
         top: 50%;
         left: 50%;
         animation-delay: -14s;
@@ -94,161 +197,208 @@
           transform: translate(0, 0) scale(1);
         }
         25% {
-          transform: translate(50px, -50px) scale(1.1);
+          transform: translate(20px, -20px) scale(1.04);
         }
         50% {
-          transform: translate(-30px, 30px) scale(0.9);
+          transform: translate(-15px, 15px) scale(0.97);
         }
         75% {
-          transform: translate(40px, 40px) scale(1.05);
+          transform: translate(15px, 15px) scale(1.02);
         }
       }
 
       .container {
         position: relative;
-        z-index: 1;
         max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: 28px;
       }
 
       /* Navigation */
       nav {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+        inset: 0 0 auto;
         z-index: 100;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backdrop-filter: blur(20px);
-        background: rgba(10, 14, 39, 0.8);
+        min-height: var(--nav-height);
+        backdrop-filter: blur(12px);
+        background: rgba(11, 16, 34, 0.92);
         border-bottom: 1px solid var(--card-border);
       }
 
       .nav-logo {
-        font-size: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 44px;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 0.95rem;
         font-weight: 700;
-        background: linear-gradient(
-          135deg,
-          var(--purple-light),
-          var(--cyan-accent)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-inner {
+        min-height: var(--nav-height);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .nav-monogram {
+        font-family: "Inter", sans-serif;
+        font-size: 1.25rem;
+        color: var(--purple-light);
+        padding-inline-start: 12px;
+        border-inline-start: 1px solid var(--card-border);
+      }
+      .nav-toggle {
+        display: none;
       }
 
       .nav-links {
         display: flex;
-        gap: 32px;
+        gap: 8px;
         list-style: none;
       }
 
       .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 14px;
+        border-radius: 8px;
         color: var(--text-secondary);
         text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.3s;
-        font-weight: 500;
+        font-size: 0.9rem;
+        transition:
+          color 0.2s,
+          background-color 0.2s;
+        font-weight: 600;
       }
 
       .nav-links a:hover {
+        color: var(--text-primary);
+        background: rgba(167, 139, 250, 0.08);
+      }
+
+      .nav-links a[aria-current="location"] {
         color: var(--purple-light);
+        background: rgba(167, 139, 250, 0.1);
       }
 
       /* Hero Section */
       .hero {
-        min-height: 100vh;
+        min-height: min(820px, 100svh);
         display: flex;
         align-items: center;
-        justify-content: center;
         text-align: center;
-        padding-top: 80px;
+        padding-block: calc(var(--nav-height) + 64px) 80px;
       }
 
       .hero-content {
-        max-width: 700px;
+        max-width: 760px;
+        margin-inline: auto;
       }
 
       .hero-badge {
-        display: inline-block;
-        padding: 8px 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 6px 14px;
         border-radius: 50px;
-        background: rgba(124, 58, 237, 0.15);
-        border: 1px solid rgba(124, 58, 237, 0.3);
-        color: var(--purple-light);
-        font-size: 0.85rem;
-        margin-bottom: 24px;
-        animation: fadeInUp 0.8s ease;
+        background: rgba(167, 139, 250, 0.06);
+        border: 1px solid var(--card-border);
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        margin-bottom: 28px;
+        animation: fadeInUp 0.6s ease;
+      }
+
+      .hero-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--cyan-accent);
+        box-shadow: 0 0 10px rgba(103, 213, 232, 0.25);
       }
 
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: clamp(2.15rem, 4.8vw, 3.8rem);
+        line-height: 1.45;
         font-weight: 900;
-        margin-bottom: 16px;
-        background: linear-gradient(135deg, #fff, var(--purple-light));
+        margin-bottom: 12px;
+        background: linear-gradient(120deg, #fff 30%, #d3c5ff);
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: fadeInUp 0.8s ease 0.2s both;
+        animation: fadeInUp 0.6s ease 0.08s both;
       }
 
       .hero h2 {
-        font-size: 1.4rem;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2.5vw, 1.35rem);
         color: var(--purple-light);
-        font-weight: 600;
-        margin-bottom: 20px;
-        animation: fadeInUp 0.8s ease 0.4s both;
+        font-weight: 500;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        animation: fadeInUp 0.6s ease 0.16s both;
       }
 
       .hero p {
-        font-size: 1.1rem;
+        max-width: 580px;
+        margin: 0 auto 32px;
+        font-size: 1.05rem;
         color: var(--text-secondary);
-        line-height: 1.8;
-        margin-bottom: 36px;
-        animation: fadeInUp 0.8s ease 0.6s both;
+        line-height: 2;
+        animation: fadeInUp 0.6s ease 0.24s both;
       }
 
       .hero-buttons {
         display: flex;
-        gap: 16px;
+        flex-wrap: wrap;
+        gap: 12px;
         justify-content: center;
-        animation: fadeInUp 0.8s ease 0.8s both;
+        animation: fadeInUp 0.6s ease 0.32s both;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .card-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        border-radius: var(--radius-control);
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background-color 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s;
       }
 
       .btn-primary {
-        padding: 14px 32px;
-        border-radius: 12px;
-        background: linear-gradient(
-          135deg,
-          var(--purple-main),
-          var(--blue-accent)
-        );
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+        padding: 12px 28px;
+        background: linear-gradient(120deg, #7034d5, #345fc7);
+        color: #fff;
+        border: 1px solid rgba(183, 163, 245, 0.25);
+        box-shadow: 0 4px 18px rgba(124, 58, 237, 0.18);
       }
 
       .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+        box-shadow: 0 6px 24px rgba(124, 58, 237, 0.28);
       }
 
       .btn-secondary {
-        padding: 14px 32px;
-        border-radius: 12px;
-        background: transparent;
-        color: var(--purple-light);
-        text-decoration: none;
-        font-weight: 600;
+        padding: 12px 28px;
+        background: rgba(21, 28, 50, 0.65);
+        color: var(--text-primary);
         border: 1px solid var(--card-border);
-        transition: all 0.3s;
-        cursor: pointer;
       }
 
       .btn-secondary:hover {
@@ -260,140 +410,97 @@
       /* Section Title */
       .section-title {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
       }
 
       .section-title h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 12px;
-        background: linear-gradient(135deg, #fff, var(--purple-light));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: clamp(1.7rem, 3vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        color: var(--text-primary);
       }
 
       .section-title p {
         color: var(--text-secondary);
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      .section-title::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 3px;
+        margin: 0 auto 16px;
+        border-radius: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--purple-light),
+          var(--cyan-accent)
+        );
       }
 
       /* Projects Section */
       .projects {
-        padding: 100px 0;
+        padding-block: var(--section-space);
       }
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 32px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        align-items: stretch;
       }
 
       .project-card {
         position: relative;
-        border-radius: 20px;
-        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border-radius: var(--radius-card);
         background: var(--card-bg);
-        backdrop-filter: blur(20px);
         border: 1px solid var(--card-border);
-        transition: all 0.4s ease;
-        animation: cardFloat 6s ease-in-out infinite;
-      }
-
-      .project-card:nth-child(2) {
-        animation-delay: -2s;
-      }
-
-      .project-card:nth-child(3) {
-        animation-delay: -4s;
-      }
-
-      .project-card::before {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        border-radius: 22px;
-        background: linear-gradient(
-          45deg,
-          var(--purple-main),
-          var(--blue-accent),
-          var(--cyan-accent),
-          var(--purple-main)
-        );
-        background-size: 400% 400%;
-        z-index: -1;
-        opacity: 0;
-        animation: glowRotate 4s linear infinite;
-        transition: opacity 0.4s ease;
+        box-shadow: var(--shadow-card);
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
       }
 
       .project-card::after {
         content: "";
         position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        border-radius: 22px;
-        background: linear-gradient(
-          45deg,
-          var(--purple-main),
-          var(--blue-accent),
-          var(--cyan-accent),
-          var(--purple-main)
-        );
-        background-size: 400% 400%;
-        z-index: -1;
-        opacity: 0.4;
-        filter: blur(15px);
-        animation: glowRotate 4s linear infinite;
-        transition: opacity 0.4s ease;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        box-shadow: 0 10px 32px rgba(124, 58, 237, 0.14);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
-
-      .project-card:hover::before {
-        opacity: 1;
+      .project-card:focus-within {
+        border-color: var(--border-accent);
       }
-
-      .project-card:hover::after {
-        opacity: 0.8;
-      }
-
-      .project-card:hover {
-        transform: translateY(-8px);
-        border-color: transparent;
-        box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
-      }
-
-      @keyframes glowRotate {
-        0% {
-          background-position: 0% 50%;
+      @media (hover: hover) and (pointer: fine) {
+        .project-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--border-accent);
         }
-        50% {
-          background-position: 100% 50%;
+        .project-card:hover::after {
+          opacity: 1;
         }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      @keyframes cardFloat {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px);
+        .project-card:hover .card-image img {
+          transform: scale(1.025);
         }
       }
 
       .card-image {
         width: 100%;
-        height: 220px;
+        aspect-ratio: 16 / 9;
         overflow: hidden;
-        border-radius: 20px 20px 0 0;
+        border-radius: calc(var(--radius-card) - 1px)
+          calc(var(--radius-card) - 1px) 0 0;
         position: relative;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--card-border);
       }
 
       .card-image img {
@@ -403,171 +510,218 @@
         transition: transform 0.4s ease;
       }
 
-      .project-card:hover .card-image img {
-        transform: scale(1.05);
-      }
-
       .card-badge {
         position: absolute;
         top: 12px;
-        right: 12px;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 700;
+        inset-inline-start: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font:
+          600 0.7rem/1.6 "Inter",
+          sans-serif;
+        direction: ltr;
         z-index: 2;
-        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
       }
 
       .badge-live {
-        background: rgba(34, 197, 94, 0.9);
-        color: white;
+        background: #102f29;
+        color: #a2e8c5;
       }
 
       .badge-demo {
-        background: rgba(234, 179, 8, 0.9);
-        color: #1e293b;
+        background: #312a1c;
+        color: #f0d18c;
+      }
+
+      .card-badge::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: currentColor;
+        border-radius: 50%;
       }
 
       .card-content {
+        display: grid;
+        grid-template-rows: auto 1fr auto 48px;
+        gap: 16px;
+        flex: 1;
         padding: 24px;
+        min-width: 0;
       }
 
       .card-content h3 {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
         font-weight: 700;
-        margin-bottom: 10px;
-        color: #fff;
+        line-height: 1.65;
+        min-height: 3.3em;
+        color: var(--text-primary);
+        overflow-wrap: anywhere;
       }
 
       .card-content p {
         color: var(--text-secondary);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 16px;
+        font-size: 0.9rem;
+        line-height: 1.85;
+        margin: 0;
       }
 
       .card-techs {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 20px;
+        gap: 6px;
+        align-content: start;
+        min-height: 62px;
       }
 
       .tech-tag {
-        padding: 5px 12px;
-        border-radius: 8px;
-        background: rgba(124, 58, 237, 0.15);
-        border: 1px solid rgba(124, 58, 237, 0.2);
-        color: var(--purple-light);
-        font-size: 0.8rem;
-        font-weight: 500;
+        padding: 4px 9px;
+        border-radius: 6px;
+        background: rgba(167, 139, 250, 0.06);
+        border: 1px solid var(--card-border);
+        color: #c8bbef;
+        font:
+          500 0.72rem/1.6 "Inter",
+          sans-serif;
+        direction: ltr;
+      }
+
+      /* Reserve the action row using layout, without fake controls on non-video projects. */
+      .card-actions {
+        align-self: end;
+      }
+      .card-image--mobile {
+        background: radial-gradient(
+          ellipse at center,
+          #174344,
+          var(--bg-secondary) 75%
+        );
+      }
+      .card-image--mobile img {
+        object-fit: contain;
+        padding: 10px;
+      }
+      .badge-type {
+        background: #1b2940;
+        color: #b8ddeb;
+        font-family: "Cairo", sans-serif;
       }
 
       .card-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 24px;
-        border-radius: 10px;
-        background: linear-gradient(
-          135deg,
-          rgba(124, 58, 237, 0.2),
-          rgba(59, 130, 246, 0.2)
-        );
-        border: 1px solid rgba(124, 58, 237, 0.3);
-        color: var(--purple-light);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.3s;
-        cursor: pointer;
+        width: 100%;
+        padding: 10px 16px;
+        background: rgba(124, 58, 237, 0.09);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        color: #d4c7ff;
+        font-size: 0.85rem;
       }
 
       .card-button:hover {
-        background: linear-gradient(
-          135deg,
-          var(--purple-main),
-          var(--blue-accent)
-        );
-        color: white;
-        border-color: transparent;
-        box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+        background: rgba(124, 58, 237, 0.2);
+        border-color: var(--border-accent);
+        color: #fff;
       }
 
       /* Modal Styles */
       .modal-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(8px);
+        inset: 0;
+        background: rgba(3, 6, 17, 0.88);
+        backdrop-filter: blur(6px);
         z-index: 1000;
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        padding: 24px;
       }
 
       .modal-overlay.active {
         display: flex;
-        opacity: 1;
+      }
+
+      /* Catch Tab leaving the cross-origin player before it reaches browser controls. */
+      .modal-focus-guard {
+        position: fixed;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
       }
 
       .modal-content {
         background: var(--bg-secondary);
-        border-radius: 20px;
+        border-radius: var(--radius-card);
         max-width: 900px;
         width: 100%;
-        overflow: hidden;
-        border: 1px solid var(--card-border);
-        box-shadow: 0 25px 100px rgba(124, 58, 237, 0.3);
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
+        max-height: calc(100vh - 48px);
+        max-height: calc(100dvh - 48px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        border: 1px solid var(--border-accent);
+        box-shadow: var(--shadow-card);
       }
 
       .modal-overlay.active .modal-content {
-        transform: scale(1);
+        animation: modalEnter 0.2s ease;
+      }
+
+      @keyframes modalEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
 
       .modal-header {
-        padding: 24px;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 16px 24px;
         border-bottom: 1px solid var(--card-border);
         display: flex;
         justify-content: space-between;
+        gap: 16px;
         align-items: center;
-        background: rgba(124, 58, 237, 0.05);
+        background: var(--bg-secondary);
       }
 
-      .modal-header h3 {
-        font-size: 1.5rem;
-        color: #fff;
+      .modal-header h2 {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        overflow-wrap: anywhere;
       }
 
       .modal-close {
-        background: rgba(124, 58, 237, 0.2);
+        background: rgba(167, 139, 250, 0.08);
         border: 1px solid var(--card-border);
         color: var(--purple-light);
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: var(--radius-control);
         cursor: pointer;
         font-size: 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s;
+        transition:
+          background-color 0.2s,
+          border-color 0.2s;
       }
 
       .modal-close:hover {
-        background: rgba(239, 68, 68, 0.2);
-        border-color: #ef4444;
-        color: #ef4444;
-        transform: rotate(90deg);
+        background: rgba(167, 139, 250, 0.18);
+        border-color: var(--border-accent);
       }
 
       .modal-body {
@@ -576,9 +730,9 @@
 
       .video-container {
         position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
+        aspect-ratio: 16 / 9;
         overflow: hidden;
+        background: #080b16;
       }
 
       .video-container iframe {
@@ -610,15 +764,17 @@
 
       /* Tech Stack Section */
       .tech-stack {
-        padding: 100px 0;
+        padding-block: var(--section-space);
+        border-block: 1px solid var(--card-border);
+        background: rgba(17, 23, 42, 0.35);
       }
 
       .tech-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
         max-width: 900px;
-        margin: 0 auto;
+        margin-inline: auto;
       }
 
       .tech-item {
@@ -626,18 +782,18 @@
         flex-direction: column;
         align-items: center;
         gap: 12px;
-        padding: 28px 16px;
-        border-radius: 16px;
+        padding: 24px 12px;
+        border-radius: 14px;
         background: var(--card-bg);
-        backdrop-filter: blur(10px);
         border: 1px solid var(--card-border);
-        transition: all 0.3s;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
       }
 
       .tech-item:hover {
-        transform: translateY(-4px);
-        border-color: var(--purple-main);
-        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+        transform: translateY(-3px);
+        border-color: var(--border-accent);
       }
 
       .tech-icon {
@@ -663,87 +819,110 @@
 
       /* Contact Section */
       .contact {
-        padding: 100px 0;
+        padding-block: var(--section-space);
       }
 
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
-        max-width: 900px;
-        margin: 0 auto;
+      .contact .section-title p {
+        max-width: 620px;
+        margin-inline: auto;
+        line-height: 2;
       }
-
-      .contact-card {
+      .contact-actions {
         display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 24px;
-        border-radius: 16px;
-        background: var(--card-bg);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--card-border);
-        text-decoration: none;
-        color: var(--text-primary);
-        transition: all 0.3s;
-        overflow: hidden;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+      .contact-actions svg {
+        flex-shrink: 0;
+      }
+      .btn-whatsapp {
+        border-color: rgba(74, 205, 153, 0.35);
+        color: #b3efd3;
+      }
+      .btn-whatsapp:hover {
+        background: rgba(42, 139, 97, 0.12);
+        border-color: #6bcda4;
+      }
+      .contact-email {
+        margin-top: 28px;
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+      .contact-email a {
+        display: inline-block;
+        padding-block: 10px;
+        color: var(--purple-light);
+        text-underline-offset: 5px;
+        overflow-wrap: anywhere;
       }
 
-      .contact-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--purple-main);
-        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
-      }
-
-      .contact-icon {
-        width: 50px;
-        height: 50px;
+      /* Small RTL-friendly shortcut, with space below the footer and a contact-section fallback. */
+      .whatsapp-float {
+        position: fixed;
+        inset-inline-end: max(18px, env(safe-area-inset-left));
+        bottom: max(18px, env(safe-area-inset-bottom));
+        z-index: 90;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px;
-        background: linear-gradient(
-          135deg,
-          rgba(124, 58, 237, 0.2),
-          rgba(59, 130, 246, 0.2)
-        );
-        font-size: 1.4rem;
-        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        border: 1px solid rgba(132, 232, 183, 0.45);
+        border-radius: 50%;
+        background: #165e45;
+        color: #eafff4;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
       }
-
-      .contact-info {
-        flex: 1;
-        min-width: 0;
+      .whatsapp-float.is-obscured {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
       }
-
-      .contact-info h4 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 4px;
-        color: #fff;
+      .whatsapp-tooltip {
+        position: absolute;
+        inset-inline-end: calc(100% + 10px);
+        padding: 6px 12px;
+        white-space: nowrap;
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 0.8rem;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.2s;
       }
-
-      .contact-info p {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        word-break: break-all;
-        line-height: 1.5;
+      @media (hover: hover) and (pointer: fine) {
+        .whatsapp-float:hover {
+          transform: translateY(-2px);
+        }
+        .whatsapp-float:hover .whatsapp-tooltip,
+        .whatsapp-float:focus-visible .whatsapp-tooltip {
+          opacity: 1;
+          visibility: visible;
+        }
       }
 
       /* Footer */
       footer {
         text-align: center;
-        padding: 40px;
+        padding: 28px 20px 88px;
         border-top: 1px solid var(--card-border);
         color: var(--text-secondary);
-        font-size: 0.9rem;
+        font-size: 0.8rem;
       }
 
       /* Animations */
       @keyframes fadeInUp {
         from {
           opacity: 0;
-          transform: translateY(30px);
+          transform: translateY(16px);
         }
         to {
           opacity: 1;
@@ -752,91 +931,269 @@
       }
 
       .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease;
+        opacity: 1;
+        transform: none;
       }
 
       .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.55s ease backwards;
       }
 
       /* Particles */
       .particles {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
+        overflow: hidden;
         pointer-events: none;
-        z-index: 0;
+        z-index: -1;
       }
 
       .particle {
         position: absolute;
+        width: 3px;
+        height: 3px;
+        background: var(--purple-light);
+        box-shadow: 0 0 7px currentColor;
+        color: var(--purple-light);
+        border-radius: 50%;
+        animation: particleDrift 28s ease-in-out infinite alternate;
+      }
+      .particle:nth-child(3n) {
+        background: var(--cyan-accent);
+        color: var(--cyan-accent);
+      }
+      .particle:nth-child(3n + 1) {
         width: 2px;
         height: 2px;
-        background: var(--purple-light);
-        border-radius: 50%;
-        opacity: 0;
-        animation: particleFloat 8s infinite;
       }
-
-      @keyframes particleFloat {
-        0% {
-          opacity: 0;
-          transform: translateY(100vh) scale(0);
+      @keyframes particleDrift {
+        from {
+          opacity: 0.24;
+          transform: translate(-8px, 12px);
         }
-        10% {
-          opacity: 0.6;
-        }
-        90% {
-          opacity: 0.6;
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-100px) scale(1);
+        to {
+          opacity: 0.48;
+          transform: translate(16px, -24px);
         }
       }
 
-      /* Responsive */
+      /* Responsive: tablet, mobile and short viewports */
+      @media (max-width: 1100px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
       @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 2.2rem;
+        :root {
+          --nav-height: 64px;
         }
-
-        .hero h2 {
-          font-size: 1.1rem;
+        .container {
+          padding-inline: 24px;
         }
+        nav {
+          backdrop-filter: blur(8px);
+        }
+        .nav-inner {
+          flex-wrap: wrap;
+          gap: 0;
+        }
+        .nav-logo {
+          font-size: 0.85rem;
+        }
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          padding-bottom: 12px;
+        }
+        .nav-links a {
+          padding-inline: 10px;
+          font-size: 0.8rem;
+        }
+        .nav-ready .nav-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          min-width: 44px;
+          min-height: 44px;
+          padding: 6px 12px;
+          color: var(--text-primary);
+          background: rgba(167, 139, 250, 0.08);
+          border: 1px solid var(--card-border);
+          border-radius: var(--radius-control);
+          cursor: pointer;
+          font-size: 0.8rem;
+        }
+        .nav-ready .nav-links {
+          display: none;
+          position: absolute;
+          top: calc(100% + 8px);
+          inset-inline: 24px;
+          width: auto;
+          padding: 8px;
+          border: 1px solid var(--card-border);
+          border-radius: 12px;
+          background: #141b32;
+          box-shadow: var(--shadow-card);
+        }
+        .nav-ready .nav-links.is-open {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-links a {
+          justify-content: center;
+        }
+        .hero {
+          min-height: 640px;
+          min-height: min(720px, 100svh);
+          padding-block: 144px 64px;
+        }
+        .hero p {
+          font-size: 0.95rem;
+        }
+        .tech-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .card-content {
+          padding: 20px;
+        }
+        .bg-animation .orb:nth-child(1) {
+          width: 420px;
+          height: 420px;
+        }
+        .bg-animation .orb:nth-child(2) {
+          width: 280px;
+          height: 280px;
+        }
+        .bg-animation .orb:nth-child(3) {
+          display: none;
+        }
+        .bg-animation .orb {
+          opacity: 0.17;
+          animation-duration: 36s;
+        }
+        .particles {
+          opacity: 0.7;
+        }
+        .whatsapp-float {
+          width: 46px;
+          height: 46px;
+          inset-inline-end: max(12px, env(safe-area-inset-left));
+          bottom: max(12px, env(safe-area-inset-bottom));
+        }
+        .whatsapp-tooltip {
+          display: none;
+        }
+        .modal-overlay {
+          padding: 16px;
+          backdrop-filter: none;
+        }
+        .modal-content {
+          max-height: calc(100vh - 32px);
+          max-height: calc(100dvh - 32px);
+        }
+        .modal-header,
+        .modal-footer {
+          padding: 16px;
+        }
+        .modal-header h2 {
+          font-size: 1rem;
+        }
+        .modal-description {
+          font-size: 0.9rem;
+        }
+      }
 
+      @media (max-width: 600px) {
         .projects-grid {
           grid-template-columns: 1fr;
         }
-
-        nav {
-          padding: 16px 20px;
+        .card-content h3 {
+          min-height: 0;
         }
-
-        .nav-links {
-          display: none;
+        .card-techs {
+          min-height: 0;
         }
+        .project-card:not(:has(.card-actions)) .card-content {
+          grid-template-rows: auto 1fr auto;
+        }
+        .contact-actions {
+          flex-direction: column;
+        }
+        .contact-actions a {
+          width: 100%;
+        }
+        .contact-email a {
+          display: block;
+        }
+      }
 
+      @media (max-width: 480px) {
+        .container {
+          padding-inline: 20px;
+        }
+        .nav-logo {
+          gap: 8px;
+          font-size: 0.8rem;
+        }
+        .nav-monogram {
+          padding-inline-start: 8px;
+          font-size: 1.1rem;
+        }
+        .hero h1 {
+          font-size: clamp(1.85rem, 8vw, 2.3rem);
+        }
+        .hero-badge {
+          font-size: 0.72rem;
+          margin-bottom: 22px;
+        }
         .hero-buttons {
           flex-direction: column;
-          align-items: center;
+          max-width: 320px;
+          margin-inline: auto;
         }
-
-        .section-title h2 {
-          font-size: 1.8rem;
+        .hero-buttons a {
+          width: 100%;
         }
-
-        .modal-content {
-          margin: 10px;
+        .section-title {
+          margin-bottom: 28px;
         }
+        .section-title p {
+          font-size: 0.85rem;
+        }
+        .tech-grid {
+          gap: 10px;
+        }
+        .tech-item {
+          padding: 18px 6px;
+        }
+        .tech-item span {
+          font-size: 0.75rem;
+        }
+      }
 
-        .contact-grid {
-          grid-template-columns: 1fr;
+      /* Keep content visible when motion is disabled or JavaScript is unavailable. */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .particles {
+          display: none;
+        }
+        .project-card:hover,
+        .project-card:hover .card-image img,
+        .tech-item:hover,
+        .whatsapp-float:hover,
+        .btn-primary:hover,
+        .btn-secondary:hover {
+          transform: none;
         }
       }
 
@@ -860,207 +1217,556 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">انتقل إلى المحتوى</a>
     <!-- Background Animation -->
-    <div class="bg-animation">
+    <div class="bg-animation" aria-hidden="true">
       <div class="orb"></div>
       <div class="orb"></div>
       <div class="orb"></div>
     </div>
 
     <!-- Particles -->
-    <div class="particles" id="particles"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav>
-      <div class="nav-logo">MA</div>
-      <ul class="nav-links">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#projects">المشاريع</a></li>
-        <li><a href="#tech">التقنيات</a></li>
-        <li><a href="#contact">تواصل</a></li>
-      </ul>
+    <nav aria-label="التنقل الرئيسي">
+      <div class="container nav-inner">
+        <a
+          class="nav-logo"
+          href="#home"
+          aria-label="محمود عبد السلام — الرئيسية"
+        >
+          <span class="nav-monogram" dir="ltr">MA</span>
+          <span>محمود عبد السلام</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navLinks"
+          aria-label="فتح قائمة التنقل"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <span>القائمة</span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#projects">المشاريع</a></li>
+          <li><a href="#tech">التقنيات</a></li>
+          <li><a href="#contact">تواصل</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-badge">✨ متاح للعمل على مشاريع جديدة</span>
-          <h1>محمود عبد السلام</h1>
-          <h2>Full Stack AI Developer</h2>
-          <p>
-            أطوّر أدوات ومنصات ويب مدعومة بالذكاء الاصطناعي. أحوّل الأفكار إلى
-            منتجات رقمية ذكية باستخدام أحدث التقنيات.
+    <main id="main-content" tabindex="-1">
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero-content">
+            <span class="hero-badge">متاح للعمل على مشاريع جديدة</span>
+            <h1>محمود عبد السلام</h1>
+            <h2 dir="ltr">Full Stack / AI Developer</h2>
+            <p>
+              أطوّر أدوات ومنصات ويب مدعومة بالذكاء الاصطناعي. أحوّل الأفكار إلى
+              منتجات رقمية ذكية باستخدام أحدث التقنيات، مع مشاريع يمكنك مشاهدة
+              عروضها أدناه.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn-primary">شاهد مشاريعي</a>
+              <a href="#contact" class="btn-secondary">تواصل معي</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects" id="projects">
+        <div class="container">
+          <div class="section-title fade-in">
+            <h2>المشاريع</h2>
+            <p>من الفكرة إلى التنفيذ — مشاريع وعروض توضيحية</p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project: BIS Exam Platform -->
+            <article class="project-card fade-in">
+              <div class="card-image">
+                <span class="card-badge badge-live">Live</span>
+                <img
+                  src="assets/bis.png"
+                  alt="واجهة منصة امتحانات المدرسة البريطانية الدولية"
+                  width="1918"
+                  height="911"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3><bdi>BIS Exam Platform</bdi></h3>
+                <p>
+                  منصة امتحانات آمنة للمدرسة البريطانية الدولية. أنشئ وأدِر
+                  وحمّل امتحانات PDF بسهولة وأمان.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Supabase</span>
+                </div>
+                <div class="card-actions">
+                  <button
+                    class="card-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="videoModal"
+                    aria-label="شاهد عرض مشروع BIS Exam Platform"
+                    data-project="bis"
+                    data-video-id="rUVHz0caO0A"
+                  >
+                    شاهد العرض
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project: Ballegh -->
+            <article class="project-card fade-in">
+              <div class="card-image card-image--mobile">
+                <span class="card-badge badge-type">Mobile App</span>
+                <img
+                  src="assets/ballegh.jpg"
+                  alt="واجهة تطبيق بلّغ لإضافة بلاغات الأحياء ومتابعتها"
+                  width="720"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3>بلّغ — تطبيق للإبلاغ عن المشكلات المجتمعية</h3>
+                <p>
+                  تطبيق جوال للإبلاغ عن مشكلات الطرق والمباني والخدمات في
+                  الأحياء، مع توثيق التفاصيل والصور والموقع لتنظيم البلاغات
+                  وتسهيل متابعتها.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Flutter</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Supabase</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project: School Reels Tool -->
+            <article class="project-card fade-in">
+              <div class="card-image">
+                <span class="card-badge badge-type">أداة محلية</span>
+                <img
+                  src="assets/school_reels_tool.png"
+                  alt="لقطة من فيديو مدرسي عمودي أنتجته أداة School Reels"
+                  width="1919"
+                  height="1075"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3><bdi>School Reels Tool</bdi></h3>
+                <p>
+                  أداة محلية شبه آلية تحوّل مقاطع المدرسة إلى Reels دعائية.
+                  تحلّل جودة المشاهد، وترصد الأشخاص والوجوه، وتعيد التأطير
+                  عموديًا مع الانتقالات والنصوص والهوية البصرية.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">OpenCV</span>
+                  <span class="tech-tag">FFmpeg</span>
+                  <span class="tech-tag">ONNX / YOLOX</span>
+                  <span class="tech-tag">OpenRouter / AI</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project: BIS Letter Adventure -->
+            <article class="project-card fade-in">
+              <div class="card-image">
+                <span class="card-badge badge-demo">Demo</span>
+                <img
+                  src="assets/bis_letter_adventure.png"
+                  alt="لعبة BIS Letter Adventure لتعليم الحروف للأطفال"
+                  width="1919"
+                  height="915"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3><bdi>BIS Letter Adventure</bdi></h3>
+                <p>
+                  لعبة تفاعلية لأطفال KG وYear 1 لتعلّم الحروف وتمييزها، تجمع
+                  الرسوم المتحركة والمؤثرات الصوتية وصوت الراوي ونظام المكافآت
+                  في تجربة ممتعة.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Phaser.js</span>
+                </div>
+                <div class="card-actions">
+                  <button
+                    class="card-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="videoModal"
+                    aria-label="شاهد عرض مشروع BIS Letter Adventure"
+                    data-project="letter-adventure"
+                    data-video-id="ownpRKVPGeQ"
+                  >
+                    شاهد العرض
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="m10 8 6 4-6 4Z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project: Adwatak -->
+            <article class="project-card fade-in">
+              <div class="card-image">
+                <span class="card-badge badge-demo">Demo</span>
+                <img
+                  src="assets/adawatak.png"
+                  alt="واجهة أدواتك لمعالجة وتحويل ملفات PDF"
+                  width="1919"
+                  height="923"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3>أدواتك — <bdi>Adwatak</bdi></h3>
+                <p>
+                  منصة شاملة لأدوات معالجة ملفات PDF. حوّل الصور إلى PDF والعكس،
+                  ادمج الملفات، اقتطع الصفحات، واضغط الملفات دون فقدان الجودة.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Python</span>
+                </div>
+                <div class="card-actions">
+                  <button
+                    class="card-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="videoModal"
+                    aria-label="شاهد عرض مشروع أدواتك"
+                    data-project="adwatak"
+                    data-video-id="sOoRhaEO3H4"
+                  >
+                    شاهد العرض
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project: Shahsiyatak -->
+            <article class="project-card fade-in">
+              <div class="card-image">
+                <span class="card-badge badge-demo">Demo</span>
+                <img
+                  src="assets/personality_analysis.png"
+                  alt="واجهة شخصيتك لتحليل أنماط الشخصية بالذكاء الاصطناعي"
+                  width="1919"
+                  height="909"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card-content">
+                <h3><bdi>Shahsiyatak</bdi></h3>
+                <p>
+                  أداة تحليل شخصية تفاعلية تستخدم الذكاء الاصطناعي لفهم أنماط
+                  الشخصية وتقديم توصيات مخصصة للتطور الذاتي.
+                </p>
+                <div class="card-techs">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">Claude</span>
+                  <span class="tech-tag">OpenRouter</span>
+                  <span class="tech-tag">Supabase</span>
+                </div>
+                <div class="card-actions">
+                  <button
+                    class="card-button"
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-controls="videoModal"
+                    aria-label="شاهد عرض مشروع Shahsiyatak"
+                    data-project="shahsiyatak"
+                    data-video-id="ABIcoRS8pYE"
+                  >
+                    شاهد العرض
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Section -->
+      <section class="tech-stack" id="tech">
+        <div class="container">
+          <div class="section-title fade-in">
+            <h2>التقنيات</h2>
+            <p>الأدوات والتقنيات التي أستخدمها لبناء منتجاتي</p>
+          </div>
+
+          <div class="tech-grid fade-in">
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">⚡</div>
+              <span>Next.js</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">⚛️</div>
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🔷</div>
+              <span>TypeScript</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🐍</div>
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🚀</div>
+              <span>FastAPI</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🗄️</div>
+              <span>Supabase</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🤖</div>
+              <span>OpenAI</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🧠</div>
+              <span>Claude</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon" aria-hidden="true">🔗</div>
+              <span>OpenRouter</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="section-title fade-in">
+            <h2>عندك فكرة مشروع؟</h2>
+            <p>
+              إذا عندك فكرة لموقع، منصة، أداة أو نظام يعتمد على الذكاء
+              الاصطناعي، تواصل معي ونرتّب الفكرة ونحدّد أفضل طريقة لتنفيذها.
+            </p>
+          </div>
+          <div class="contact-actions fade-in">
+            <a
+              href="https://wa.me/972598179196"
+              class="btn-secondary btn-whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.8c0 2.1.5 4.1 1.6 5.9L.1 24l6.4-1.7c1.7.9 3.6 1.4 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.7c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5H8c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.3-.7.3-1.2.2-1.3-.1-.1-.3-.2-.6-.3Z"
+                />
+              </svg>
+              تواصل معي عبر واتساب
+            </a>
+            <a
+              href="https://khamsat.com/programming/custom-website-development/4385493-%D8%B3%D8%A3%D8%B7%D9%88%D8%B1-%D9%84%D9%83-%D9%85%D9%86%D8%B5%D8%A9-%D8%A3%D9%88-%D8%A3%D8%AF%D8%A7%D8%A9-%D9%88%D9%8A%D8%A8-%D8%B0%D9%83%D9%8A%D8%A9-%D8%AA%D8%B9%D9%85%D9%84-%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A#"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              اطلب خدمتك عبر خمسات
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true"
+              >
+                <path d="M14 4h6v6m0-6L10 14M10 4H4v16h16v-6" />
+              </svg>
+            </a>
+          </div>
+          <p class="contact-email">
+            أو راسلني عبر البريد:
+            <a href="mailto:mahabdalsalam04@gmail.com"
+              ><bdi>mahabdalsalam04@gmail.com</bdi></a
+            >
           </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">شاهد مشاريعي</a>
-            <a href="#contact" class="btn-secondary">تواصل معي</a>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>المشاريع</h2>
-          <p>مجموعة من المشاريع اللي اشتغلت عليها</p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Project 1: BIS Exam Platform -->
-          <div class="project-card fade-in">
-            <div class="card-image">
-              <span class="card-badge badge-live">🟢 Live</span>
-              <img src="assets\bis.png" alt="BIS Exam Platform" />
-            </div>
-            <div class="card-content">
-              <h3>BIS Exam Platform</h3>
-              <p>
-                منصة امتحانات آمنة للمدرسة البريطانية الدولية. أنشئ وأدر وحمل
-                امتحانات PDF بسهولة وأمان.
-              </p>
-              <div class="card-techs">
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Supabase</span>
-              </div>
-              <button class="card-button" onclick="openModal('bis')">
-                🎬 شاهد العرض
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Project 2: Adwatak -->
-          <div class="project-card fade-in">
-            <div class="card-image">
-              <span class="card-badge badge-demo">🟡 Demo</span>
-              <img src="assets\adawatak.png" alt="Adwatak" />
-            </div>
-            <div class="card-content">
-              <h3>Adwatak - أدواتك</h3>
-              <p>
-                منصة شاملة لأدوات معالجة ملفات PDF. حول الصور إلى PDF والعكس،
-                ادمج الملفات، اقتطع الصفحات، واضغط الملفات دون فقدان الجودة.
-              </p>
-              <div class="card-techs">
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Python</span>
-              </div>
-              <button class="card-button" onclick="openModal('adwatak')">
-                🎬 شاهد العرض
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Project 3: Shahsiyatak -->
-          <div class="project-card fade-in">
-            <div class="card-image">
-              <span class="card-badge badge-demo">🟡 Demo</span>
-              <img src="assets\personality_analysis.png" alt="Shahsiyatak" />
-            </div>
-            <div class="card-content">
-              <h3>Shahsiyatak</h3>
-              <p>
-                أداة تحليل شخصية تفاعلية تستخدم الذكاء الاصطناعي لفهم أنماط
-                الشخصية وتقديم توصيات مخصصة للتطور الذاتي.
-              </p>
-              <div class="card-techs">
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">Claude</span>
-                <span class="tech-tag">OpenRouter</span>
-                <span class="tech-tag">Supabase</span>
-              </div>
-              <button class="card-button" onclick="openModal('shahsiyatak')">
-                🎬 شاهد العرض
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Floating contact shortcut; included in the modal's inert background. -->
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/972598179196"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تواصل معي عبر واتساب — يفتح في نافذة جديدة"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.8c0 2.1.5 4.1 1.6 5.9L.1 24l6.4-1.7c1.7.9 3.6 1.4 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.7c-1.8 0-3.5-.5-5-1.3l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5H8c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.4.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.3-.7.3-1.2.2-1.3-.1-.1-.3-.2-.6-.3Z"
+        />
+      </svg>
+      <span class="whatsapp-tooltip" aria-hidden="true">تواصل عبر واتساب</span>
+    </a>
 
     <!-- Modal -->
     <div
       class="modal-overlay"
       id="videoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDescription"
+      aria-hidden="true"
+      tabindex="-1"
       onclick="closeModalOnOverlay(event)"
     >
-      <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-content">
         <div class="modal-header">
-          <h3 id="modalTitle">عنوان المشروع</h3>
-          <button class="modal-close" onclick="closeModal()">&times;</button>
+          <h2 id="modalTitle" dir="auto">عنوان المشروع</h2>
+          <button
+            class="modal-close"
+            type="button"
+            aria-label="إغلاق عرض المشروع"
+            onclick="closeModal()"
+          >
+            &times;
+          </button>
         </div>
         <div class="modal-body">
           <div class="video-container">
-            <iframe id="videoFrame" src="" allowfullscreen></iframe>
+            <iframe
+              id="videoFrame"
+              title="عرض المشروع على YouTube"
+              allow="encrypted-media; picture-in-picture; fullscreen"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div class="modal-footer">
@@ -1068,96 +1774,8 @@
           <div class="modal-techs" id="modalTechs"></div>
         </div>
       </div>
+      <span class="modal-focus-guard" tabindex="0"></span>
     </div>
-
-    <!-- Tech Stack Section -->
-    <section class="tech-stack" id="tech">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>التقنيات</h2>
-          <p>الأدوات والتقنيات اللي بستعملها يوميًا</p>
-        </div>
-
-        <div class="tech-grid fade-in">
-          <div class="tech-item">
-            <div class="tech-icon">⚡</div>
-            <span>Next.js</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">⚛️</div>
-            <span>React</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🔷</div>
-            <span>TypeScript</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🐍</div>
-            <span>Python</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🚀</div>
-            <span>FastAPI</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🗄️</div>
-            <span>Supabase</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🤖</div>
-            <span>OpenAI</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🧠</div>
-            <span>Claude</span>
-          </div>
-          <div class="tech-item">
-            <div class="tech-icon">🔗</div>
-            <span>OpenRouter</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>تواصل معي</h2>
-          <p>عندك فكرة مشروع؟ خلينا نتكلم!</p>
-        </div>
-
-        <div class="contact-grid fade-in">
-          <a
-            href="https://wa.me/972598179196"
-            target="_blank"
-            class="contact-card"
-          >
-            <div class="contact-icon">💬</div>
-            <div class="contact-info">
-              <h4>واتساب</h4>
-              <p>تواصل معي مباشرة</p>
-            </div>
-          </a>
-
-          <a href="mailto:mahabdalsalam04@gmail.com" class="contact-card">
-            <div class="contact-icon">📧</div>
-            <div class="contact-info">
-              <h4>البريد الإلكتروني</h4>
-              <p>mahabdalsalam04@gmail.com</p>
-            </div>
-          </a>
-
-          <a href="https://khamsat.com" target="_blank" class="contact-card">
-            <div class="contact-icon">🛒</div>
-            <div class="contact-info">
-              <h4>خمسات</h4>
-              <p>اطلب خدمتي على خمسات</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -1167,102 +1785,295 @@
     <script>
       // Modal Data
       const modalData = {
+        "letter-adventure": {
+          title: "BIS Letter Adventure",
+          description:
+            "لعبة تفاعلية لأطفال KG وYear 1 لتعلّم الحروف وتمييزها، تجمع الرسوم المتحركة والمؤثرات الصوتية وصوت الراوي ونظام المكافآت في تجربة ممتعة.",
+          techs: ["Phaser.js"],
+        },
         bis: {
           title: "BIS Exam Platform",
-          video: "https://www.youtube.com/embed/rUVHz0caO0A",
           description:
             "منصة امتحانات آمنة للمدرسة البريطانية الدولية. تتيح للمعلمين إنشاء وإدارة وتحميل امتحانات PDF بشكل آمن وسهل. النظام يوفر واجهة بسيطة مع ميزات متقدمة لإدارة الامتحانات.",
           techs: ["Next.js", "FastAPI", "Python", "Supabase"],
         },
         adwatak: {
           title: "Adwatak - أدواتك",
-          video: "https://www.youtube.com/embed/sOoRhaEO3H4",
           description:
             "منصة شاملة لأدوات معالجة ملفات PDF. تشمل: تحويل الصور إلى PDF والعكس، دمج ملفات PDF متعددة، تقسيم الصفحات، استخراج صفحات محددة، وضغط الملفات دون فقدان الجودة. واجهة سهلة وسريعة مع نتائج احترافية.",
           techs: ["Next.js", "React", "TypeScript", "Python"],
         },
         shahsiyatak: {
           title: "Shahsiyatak",
-          video: "https://www.youtube.com/embed/ABIcoRS8pYE",
           description:
             "أداة تحليل شخصية تفاعلية تستخدم الذكاء الاصطناعي (Claude & OpenRouter) لفهم أنماط الشخصية. تقدم اختبارات ممتعة وتحليلات عميقة مع توصيات مخصصة للتطور الذاتي والنمو الشخصي.",
           techs: ["Next.js", "Claude", "OpenRouter", "Supabase"],
         },
       };
 
-      // Modal Functions
-      function openModal(projectKey) {
-        const modal = document.getElementById("videoModal");
-        const data = modalData[projectKey];
+      // Mobile navigation; links remain available if JavaScript is disabled.
+      const nav = document.querySelector("nav");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.getElementById("navLinks");
+      const mobileQuery = window.matchMedia("(max-width: 768px)");
+      const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      nav.classList.add("nav-ready");
 
+      function closeMenu(returnFocus = false) {
+        navLinks.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "فتح قائمة التنقل");
+        if (returnFocus) navToggle.focus();
+      }
+
+      navToggle.addEventListener("click", () => {
+        const expanded = navToggle.getAttribute("aria-expanded") !== "true";
+        navLinks.classList.toggle("is-open", expanded);
+        navToggle.setAttribute("aria-expanded", String(expanded));
+        navToggle.setAttribute(
+          "aria-label",
+          expanded ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل",
+        );
+      });
+      document.addEventListener("click", (event) => {
+        if (!nav.contains(event.target)) closeMenu();
+      });
+      nav.addEventListener("focusout", (event) => {
+        if (!nav.contains(event.relatedTarget)) closeMenu();
+      });
+      mobileQuery.addEventListener("change", () => {
+        const focusedLink = navLinks.contains(document.activeElement);
+        const focusedToggle = document.activeElement === navToggle;
+        closeMenu(mobileQuery.matches && focusedLink);
+        if (!mobileQuery.matches && focusedToggle)
+          navLinks.querySelector("a").focus();
+        renderParticles();
+      });
+
+      // Modal lifecycle: preserve video URLs, stop playback, restore focus and scrolling.
+      const modal = document.getElementById("videoModal");
+      const videoFrame = document.getElementById("videoFrame");
+      const modalClose = modal.querySelector(".modal-close");
+      modal
+        .querySelector(".modal-focus-guard")
+        .addEventListener("focus", () => modalClose.focus());
+      const pageRegions = [
+        nav,
+        document.querySelector("main"),
+        document.querySelector("footer"),
+        document.querySelector(".whatsapp-float"),
+      ];
+      let modalTrigger = null;
+      let previousOverflow = "";
+
+      document
+        .querySelectorAll(".card-button[data-video-id]")
+        .forEach((button) => {
+          button.addEventListener("click", () => openModal(button));
+        });
+
+      function openModal(button) {
+        const { project, videoId } = button.dataset;
+        const data = modalData[project];
+        if (!data || !/^[a-zA-Z0-9_-]{11}$/.test(videoId)) return;
+        if (!modal.classList.contains("active")) {
+          modalTrigger = button;
+          previousOverflow = document.body.style.overflow;
+        }
+        closeMenu();
         document.getElementById("modalTitle").textContent = data.title;
-        document.getElementById("videoFrame").src = data.video + "?autoplay=1";
+        videoFrame.title = "عرض مشروع " + data.title + " على YouTube";
+        videoFrame.src =
+          "https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0";
         document.getElementById("modalDescription").textContent =
           data.description;
-
-        const techsContainer = document.getElementById("modalTechs");
-        techsContainer.innerHTML = data.techs
-          .map((tech) => `<span class="tech-tag">${tech}</span>`)
-          .join("");
-
+        document.getElementById("modalTechs").replaceChildren(
+          ...data.techs.map((tech) => {
+            const tag = document.createElement("span");
+            tag.className = "tech-tag";
+            tag.textContent = tech;
+            return tag;
+          }),
+        );
         modal.classList.add("active");
+        modal.removeAttribute("aria-hidden");
         document.body.style.overflow = "hidden";
+        pageRegions.forEach((region) => {
+          region.inert = true;
+        });
+        modal.querySelector(".modal-content").scrollTop = 0;
+        modalClose.focus();
       }
 
       function closeModal() {
-        const modal = document.getElementById("videoModal");
+        if (!modal.classList.contains("active")) return;
         modal.classList.remove("active");
-        document.getElementById("videoFrame").src = "";
-        document.body.style.overflow = "";
+        videoFrame.removeAttribute("src");
+        document.body.style.overflow = previousOverflow;
+        pageRegions.forEach((region) => {
+          region.inert = false;
+        });
+        if (modalTrigger && modalTrigger.isConnected)
+          modalTrigger.focus({ preventScroll: true });
+        modal.setAttribute("aria-hidden", "true");
       }
 
       function closeModalOnOverlay(event) {
-        if (event.target === event.currentTarget) {
-          closeModal();
-        }
+        if (event.target === event.currentTarget) closeModal();
       }
 
-      // Close modal on ESC key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal();
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          if (modal.classList.contains("active")) closeModal();
+          else if (navLinks.classList.contains("is-open")) closeMenu(true);
+        }
+        if (event.key === "Tab" && modal.classList.contains("active")) {
+          if (event.shiftKey && document.activeElement === modalClose) {
+            event.preventDefault();
+            videoFrame.focus();
+          } else if (!event.shiftKey && document.activeElement === videoFrame) {
+            event.preventDefault();
+            modalClose.focus();
+          }
         }
       });
+      // Also catches focus returning from the cross-origin video player.
+      document.addEventListener("focusin", (event) => {
+        if (modal.classList.contains("active") && !modal.contains(event.target))
+          modalClose.focus();
+      });
 
-      // Intersection Observer for fade-in animations
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
+      // Reveal once, without keeping off-screen content hidden if scripts fail.
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (!motionQuery.matches) entry.target.classList.add("visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        document
+          .querySelectorAll(".fade-in")
+          .forEach((element) => revealObserver.observe(element));
+
+        // Track section boundaries and the page end without a scroll event loop.
+        const sections = [...document.querySelectorAll("main > section[id]")];
+        function updateActiveSection() {
+          const atEnd =
+            window.scrollY + window.innerHeight >=
+            document.documentElement.scrollHeight - 2;
+          const passed = sections.filter(
+            (section) =>
+              section.getBoundingClientRect().top <= window.innerHeight * 0.21,
+          );
+          const active = atEnd
+            ? sections[sections.length - 1]
+            : passed[passed.length - 1] || sections[0];
+          navLinks.querySelectorAll("a").forEach((link) => {
+            if (link.hash === "#" + active.id)
+              link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
           });
-        },
-        { threshold: 0.1 },
-      );
-
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
-
-      // Generate particles
-      const particlesContainer = document.getElementById("particles");
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
-        particle.style.left = Math.random() * 100 + "%";
-        particle.style.animationDelay = Math.random() * 8 + "s";
-        particle.style.animationDuration = Math.random() * 4 + 6 + "s";
-        particlesContainer.appendChild(particle);
+        }
+        const sectionObserver = new IntersectionObserver(updateActiveSection, {
+          rootMargin: "-20% 0px -79% 0px",
+          threshold: 0,
+        });
+        sections.forEach((section) => sectionObserver.observe(section));
+        const footerObserver = new IntersectionObserver(updateActiveSection, {
+          threshold: [0, 1],
+        });
+        footerObserver.observe(document.querySelector("footer"));
       }
 
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
+      // CSS animates a small particle set; no JavaScript animation loop.
+      const particlesContainer = document.getElementById("particles");
+      function renderParticles() {
+        particlesContainer.replaceChildren();
+        if (motionQuery.matches) return;
+        const fragment = document.createDocumentFragment();
+        const count = mobileQuery.matches ? 6 : 12;
+        for (let i = 0; i < count; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = 8 + ((i * 37) % 84) + "%";
+          particle.style.top = 8 + ((i * 23) % 84) + "%";
+          particle.style.animationDelay = -(i * 5) + "s";
+          particle.style.animationDuration = 24 + (i % 4) * 4 + "s";
+          fragment.appendChild(particle);
+        }
+        particlesContainer.appendChild(fragment);
+      }
+      motionQuery.addEventListener("change", renderParticles);
+      renderParticles();
+
+      // Hide the shortcut when it would cover content, or the contact CTAs are visible.
+      // A small observer region follows its corner; no per-scroll animation or polling.
+      const whatsappShortcut = document.querySelector(".whatsapp-float");
+      let shortcutObserver;
+      let contactVisible = false;
+      let overlappingActions = new Set();
+      function updateShortcut() {
+        const hide = contactVisible || overlappingActions.size > 0;
+        // Do not remove an element while someone is using it with the keyboard.
+        whatsappShortcut.classList.toggle(
+          "is-obscured",
+          hide && document.activeElement !== whatsappShortcut,
+        );
+      }
+      function observeShortcutSpace() {
+        if (!("IntersectionObserver" in window)) return;
+        if (shortcutObserver) shortcutObserver.disconnect();
+        overlappingActions.clear();
+        const rect = whatsappShortcut.getBoundingClientRect();
+        const top = Math.max(0, rect.top - 6);
+        const right = Math.max(
+          0,
+          document.documentElement.clientWidth - rect.right - 6,
+        );
+        const bottom = Math.max(0, window.innerHeight - rect.bottom - 6);
+        const left = Math.max(0, rect.left - 6);
+        shortcutObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) overlappingActions.add(entry.target);
+              else overlappingActions.delete(entry.target);
+            });
+            updateShortcut();
+          },
+          { rootMargin: `-${top}px -${right}px -${bottom}px -${left}px` },
+        );
+        document
+          .querySelectorAll(
+            "main a, main button, main p, main h1, main h2, main h3, main img, .card-techs, .tech-grid, footer",
+          )
+          .forEach((element) => shortcutObserver.observe(element));
+        updateShortcut();
+      }
+      if ("IntersectionObserver" in window) {
+        const contactObserver = new IntersectionObserver((entries) => {
+          contactVisible = entries[0].isIntersecting;
+          updateShortcut();
+        });
+        contactObserver.observe(document.querySelector(".contact-actions"));
+        observeShortcutSpace();
+        window.addEventListener("resize", observeShortcutSpace, {
+          passive: true,
+        });
+        whatsappShortcut.addEventListener("blur", updateShortcut);
+      }
+
+      // Native anchors retain URL/history behavior; CSS handles smooth scrolling.
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMenu();
+          const section = document.querySelector(link.hash);
+          section.setAttribute("tabindex", "-1");
+          section.focus({ preventScroll: true });
         });
       });
     </script>
